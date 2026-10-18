@@ -59,20 +59,20 @@ Aetheris replaces high-friction copy-paste chat with **Zero-Friction Spatial Cog
 
 ```mermaid
 flowchart TD
-    User["👨‍🔬 Researcher in XR Space (Gaze / Voice / Pointer)"] -->|Gaze Raycast (x, y)| GazeEngine["🎯 Spatial Raycasting & Coordinate Engine"]
-    User -->|Voice Query ("Explain this")| SpeechEngine["🎙️ Deictic Speech & Intent Resolver"]
+    User["Researcher in XR Space<br/>Gaze, Voice, Pointer"] -->|Continuous Gaze Raycast| GazeEngine["Spatial Raycasting & Coordinate Engine"]
+    User -->|Deictic Speech Stream| SpeechEngine["Deictic Speech & Intent Resolver"]
     
     subgraph Aetheris_Spatial_Kernel["Aetheris Spatial Intelligence Kernel"]
         GazeEngine -->|Normalized Coordinates| HitTest["Hit-Test & Layout Boundary Resolver"]
-        HitTest -->|Active Block + Page Context| ContextPacker["Context Packet Assembler"]
+        HitTest -->|Active Block and Page Context| ContextPacker["Context Packet Assembler"]
         SpeechEngine -->|Disambiguated Intent| ContextPacker
         
-        ContextPacker -->|Focused Block + Surrounding Section + Prior Notes| MultiModalLLM["🧠 Multimodal Reasoning Engine (Gemini 2.0 / GPT-4o)"]
+        ContextPacker -->|Focused Context and Prior Notes| MultiModalLLM["Multimodal Reasoning Engine<br/>Gemini 2.0 / GPT-4o"]
     end
     
-    MultiModalLLM -->|Grounded Answer + Bounding Coordinates| SpatialUI["🌌 3D Spatial Canvas (Three.js / WebXR)"]
-    SpatialUI -->|Anchored Beside Document| Note["📍 3D Floating Spatial Note & Concept Graph"]
-    SpatialUI -->|Chronological Timeline Stream| EventTrail["📋 Workspace Event Audit & Session Replay"]
+    MultiModalLLM -->|Grounded Answer and Coordinates| SpatialUI["3D Spatial Canvas<br/>Three.js / WebXR"]
+    SpatialUI -->|Anchored in 3D Space| Note["3D Floating Spatial Note & Concept Graph"]
+    SpatialUI -->|Chronological Timeline Stream| EventTrail["Workspace Event Audit & Session Replay"]
 ```
 
 ---
